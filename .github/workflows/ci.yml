@@ -62,8 +62,8 @@ jobs:
           name: artifacts
     - name: Deploy to Sandbox
       env:
-        anypoint-username: ${{ secrets.ANYPOINT_USERNAME }}
-        anypoint-password: ${{ secrets.ANYPOINT_PASSWORD }}
+        ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
+        ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypoint-username" -Danypoint.password="$anypoint-password" -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Dev -Dcloudhub.application.name=cicd-app-20012023-2
+        mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$ANYPOINT_USERNAME" -Danypoint.password="$ANYPOINT_PASSWORD" -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Dev -Dcloudhub.application.name=cicd-app-20012023
