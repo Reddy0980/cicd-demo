@@ -66,4 +66,4 @@ jobs:
         anypoint-password: ${{ secrets.anypoint_password }}
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn deploy -DskipMunitTests -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypoint-username" -Danypoint.password="$anypoint-password" 
+        mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypoint-username" -Danypoint.password="$anypoint-password" -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Dev -Dcloudhub.application.name=hello-app-dev-2
