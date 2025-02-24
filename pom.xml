@@ -29,22 +29,20 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-				  <configuration>
-				    <cloudHubDeployment>
-				      <uri>https://anypoint.mulesoft.com</uri>
-				      <muleVersion>${app.runtime}</muleVersion>
-				      <username>${username}</username>
-				      <password>${password}</password>
-				      <applicationName>${cloudhub.application.name}</applicationName>
-				      <environment>${environment}</environment>
-				      <region>${region}</region>
-				      <workers>${workers}</workers>
-				      <workerType>${workerType}</workerType>
-				      <properties>
-				        <Note>Hello There!!!</Note>
-				      </properties>
-				    </cloudHubDeployment>
-				  </configuration>
+				<configuration>
+					<cloudhub2Deployment>
+			                        <uri>https://anypoint.mulesoft.com</uri>
+			                        <provider>MC</provider>
+			                        <environment>${environment}</environment>
+			                        <target>${targetName}</target>
+			                        <muleVersion>${app.runtime}</muleVersion>
+			                        <username>${username}</username>
+			                        <password>${password}</password>
+			                        <applicationName>${application.name}</applicationName>
+			                        <replicas>1</replicas>
+			                        <vCores>.1</vCores>
+			                </cloudhub2Deployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
