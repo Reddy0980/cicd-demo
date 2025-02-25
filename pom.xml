@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ec0d474c-1fe0-4126-90fc-5fc07a243494</groupId>
+	<groupId>com.mycompany</groupId>
 	<artifactId>cicd-demo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
@@ -29,20 +29,22 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-				<configuration>
-					<cloudhub2Deployment>
-			                        <uri>https://anypoint.mulesoft.com</uri>
-			                        <provider>MC</provider>
-			                        <environment>${environment}</environment>
-			                        <target>${targetName}</target>
-			                        <muleVersion>${app.runtime}</muleVersion>
-			                        <username>${username}</username>
-			                        <password>${password}</password>
-			                        <applicationName>${application.name}</applicationName>
-			                        <replicas>1</replicas>
-			                        <vCores>.1</vCores>
-			                </cloudhub2Deployment>
-				</configuration>
+				  <configuration>
+				    <cloudHubDeployment>
+				      <uri>https://anypoint.mulesoft.com</uri>
+				      <muleVersion>${app.runtime}</muleVersion>
+				      <username>${username}</username>
+				      <password>${password}</password>
+				      <applicationName>${cloudhub.application.name}</applicationName>
+				      <environment>${environment}</environment>
+				      <region>${region}</region>
+				      <workers>${workers}</workers>
+				      <workerType>${workerType}</workerType>
+				      <properties>
+				        <Note>Hello There!!!</Note>
+				      </properties>
+				    </cloudHubDeployment>
+				  </configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -88,12 +90,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-  	<distributionManagement>
-    		<repository>
-      			<id>anypoint-exchange-v3</id>
-      			<name>Corporate Repository</name>
-      			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/ec0d474c-1fe0-4126-90fc-5fc07a243494/maven</url>
-      			<layout>default</layout>
-    		</repository>
-  	</distributionManagement>
+
 </project>
