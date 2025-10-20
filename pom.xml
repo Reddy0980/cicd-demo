@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <app.runtime>4.10.0</app.runtime>
-        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+        <mule.maven.plugin.version>3.9.0</mule.maven.plugin.version>
 
         <!-- Sravani credentials -->
         <mule.username>SravaniYarredla1</mule.username>
@@ -106,10 +106,12 @@
 
 <pluginRepositories>
     <pluginRepository>
-        <id>mulesoft-releases</id>
+        <id>anypoint-maven</id>
+        <name>Anypoint Maven Repository</name>
         <url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
         <layout>default</layout>
-        <snapshots><enabled>false</enabled></snapshots>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
     </pluginRepository>
 </pluginRepositories>
 
